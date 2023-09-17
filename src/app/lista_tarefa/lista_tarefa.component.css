@@ -1,0 +1,22 @@
+
+.container-fluid{
+    width:100%;
+    margin-left: 0; /* Sem margem à esquerda */
+    margin-right: 0; /* Sem margem à direita */
+}
+
+.titulo-da-lista {
+    background-color: lightblue; /* Fundo azul claro */
+    text-align: center; /* Texto centralizado */
+    margin-left: 0; /* Sem margem à esquerda */
+    margin-right: 0; /* Sem margem à direita */
+    padding: 10px; /* Espaçamento interno para o conteúdo (opcional) */
+    font-size: 20px;
+    color: white;
+}
+
+.btn-adicionar{
+    margin-top: 30px;
+}
+
+
