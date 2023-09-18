@@ -10,22 +10,25 @@
 <br>
 <div class="container">
     <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-6">
-                <label for="inputTarefa" class="form-label">Nova Tarefa</label>
-                <input type="text" placeholder="Digite uma nova tarefa" [(ngModel)]="novaTarefa" class="form-control"
-                    id="inputTarefa">
+        <form >
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="inputTarefa" class="form-label">Nova Tarefa</label>
+                    <input type="text" placeholder="Digite uma nova tarefa" [(ngModel)]="nomeTarefa" name="novaTarefa" class="form-control"
+                        id="inputTarefa">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputStatus" class="form-label">Status</label>
+                    <select id="inputStatus" class="form-select" [(ngModel)]="selectStatus" name="selectStatus">
+                        <option *ngFor="let status of listaStatus" [value]="status.value">{{ status.nome }}</option>
+                    </select>
+                </div>
+                <div class="col-md-2 btn-adicionar">
+                    <button type="button" class="btn btn-success" (click)="acao == acaocCadastrar ? adicionarTarefas() : editar()">
+                        {{acao == acaocCadastrar ? 'Cadastrar' : 'Editar'}}</button>
+                </div>
             </div>
-            <div class="col-md-4">
-                <label for="inputStatus" class="form-label">Status</label>
-                <select id="inputStatus" class="form-select" [(ngModel)]="selectStatus">
-                    <option *ngFor="let status of objStatus" [value]="status.value">{{ status.nome }}</option>
-                </select>
-            </div>
-            <div class="col-md-2 btn-adicionar">
-                <button type="button" class="btn btn-danger">Adicionar</button>
-            </div>
-        </div>
+        </form>
     </div>
     <br>
     <div class="col-md-12">
@@ -33,32 +36,43 @@
             <table class="table table-bordered table-striped table-hover">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Nova Tarefa</th>
                         <th scope="col">Status</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
+                    <tr *ngFor="let tarefa of listaTarefas">
+                        <td>{{tarefa.nome}}</td>
+                        <td>{{tarefa.status == "1" ? "Concluído" : "Pendente"}}</td>
+                        <td>
+                            
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-xs btn-primary" (click)="carregarTarefa(tarefa)"><i class="bi bi-pencil-square"></i></button>
+                                <button type="button" class="btn btn-xs btn-danger" (click)="carregarTarefa(tarefa)" data-bs-toggle="modal" data-bs-target="#modalExcluir"> <i class="bi bi-trash3"></i> </button>
+                              </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+
+            <div class="modal" id="modalExcluir" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Excluir tarefa</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Tem certeza que deseja deletar a tarefa <strong> {{nomeTarefa}} </strong>?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-danger" (click)="excluir(nomeTarefa)">Ecluir!</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
         </div>
     </div>
