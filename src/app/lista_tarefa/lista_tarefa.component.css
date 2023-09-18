@@ -1,22 +1,39 @@
 
 .container-fluid{
     width:100%;
-    margin-left: 0; /* Sem margem à esquerda */
-    margin-right: 0; /* Sem margem à direita */
+    margin-left: 0; 
+    margin-right: 0; 
 }
 
 .titulo-da-lista {
-    background-color: lightblue; /* Fundo azul claro */
-    text-align: center; /* Texto centralizado */
-    margin-left: 0; /* Sem margem à esquerda */
-    margin-right: 0; /* Sem margem à direita */
-    padding: 10px; /* Espaçamento interno para o conteúdo (opcional) */
+    background-color: #102C57;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px;
     font-size: 20px;
-    color: white;
+    color: #EADBC8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.titulo-da-lista:hover {
+    background-color: #EADBC8;
+    color: #102C57;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .btn-adicionar{
     margin-top: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.table {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 

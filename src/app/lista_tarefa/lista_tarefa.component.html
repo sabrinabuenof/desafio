@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
     <div class="col-sm-12">
         <div class="row titulo-da-lista">
@@ -12,13 +13,13 @@
         <div class="row">
             <div class="col-md-6">
                 <label for="inputTarefa" class="form-label">Nova Tarefa</label>
-                <input type="text" placeholder="Digite uma nova tarefa" [(ngModel)]="novaTarefa" class="form-control" id="inputTarefa">
+                <input type="text" placeholder="Digite uma nova tarefa" [(ngModel)]="novaTarefa" class="form-control"
+                    id="inputTarefa">
             </div>
             <div class="col-md-4">
                 <label for="inputStatus" class="form-label">Status</label>
                 <select id="inputStatus" class="form-select" [(ngModel)]="selectStatus">
                     <option *ngFor="let status of objStatus" [value]="status.value">{{ status.nome }}</option>
-
                 </select>
             </div>
             <div class="col-md-2 btn-adicionar">
@@ -29,8 +30,8 @@
     <br>
     <div class="col-md-12">
         <div class="row">
-            <table class="table">
-                <thead>
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nova Tarefa</th>
@@ -58,9 +59,7 @@
                     </tr>
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>
-
-
-
