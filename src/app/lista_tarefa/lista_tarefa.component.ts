@@ -30,8 +30,7 @@ export class ListaTarefaComponent implements OnInit {
     }
 
     adicionarTarefas(){   
-        console.log(this.selectStatus);
-        let objTarefa = {
+            let objTarefa = {
             nome: this.nomeTarefa,
             status: this.selectStatus
         }
